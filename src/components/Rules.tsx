@@ -1,84 +1,82 @@
-export default function Rules() {
-  const rules = [
-    {
-      icon: "👥",
-      title: "No Guests",
-      description:
-        "Please enjoy your stay with just the guests listed on your reservation. No additional visitors allowed.",
-    },
-    {
-      icon: "🎉",
-      title: "No Parties",
-      description:
-        "This is a residential property in a quiet neighborhood. Gatherings and celebrations are not permitted.",
-    },
-    {
-      icon: "🌙",
-      title: "Quiet Hours",
-      description:
-        "Please be respectful of neighbors. Quiet hours are from 9 PM to 9 AM.",
-    },
-    {
-      icon: "🚭",
-      title: "No Smoking",
-      description:
-        "Smoking is strictly prohibited inside and outside the apartment.",
-    },
-    {
-      icon: "🐾",
-      title: "No Pets",
-      description:
-        "Unfortunately, this property is not pet-friendly. Service animals are welcome.",
-    },
-    {
-      icon: "📸",
-      title: "No Commercial Photography",
-      description:
-        "Photography for personal use is fine, but commercial photography is not permitted.",
-    },
-  ];
+import Icon, { type IconName } from "./Icon";
+import SectionHeading from "./SectionHeading";
 
+const rules: { icon: IconName; title: string; description: string }[] = [
+  {
+    icon: "users",
+    title: "Alleen geboekte gasten",
+    description:
+      "Het appartement is er voor de gasten op de reservering. Bezoek kunnen we helaas niet toestaan.",
+  },
+  {
+    icon: "sparkle",
+    title: "Geen feesten",
+    description:
+      "Dit is een woonhuis in een rustige buurt. Bijeenkomsten en feesten zijn niet toegestaan.",
+  },
+  {
+    icon: "moon",
+    title: "Nachtrust",
+    description:
+      "Tussen 21.00 en 09.00 uur graag rekening houden met de buren.",
+  },
+  {
+    icon: "smoke",
+    title: "Rookvrij",
+    description:
+      "Roken is niet toegestaan, binnen noch op het balkon of bij de voordeur.",
+  },
+  {
+    icon: "paw",
+    title: "Geen huisdieren",
+    description:
+      "Het appartement is helaas niet geschikt voor huisdieren. Hulphonden zijn welkom.",
+  },
+  {
+    icon: "camera",
+    title: "Geen commerciële opnames",
+    description:
+      "Foto's voor uzelf mogen altijd. Commerciële shoots zijn niet toegestaan.",
+  },
+];
+
+export default function Rules() {
   return (
     <section
       id="rules"
-      className="bg-gradient-to-b from-cream-50 to-white py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-200"
+      className="bg-ink-950 px-6 py-24 sm:px-10 sm:py-32 lg:py-36"
     >
-      <div className="max-w-4xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-serif text-navy-900 mb-4">
-            House Rules
-          </h2>
-          <p className="text-gold-600 text-lg font-light">
-            Help us maintain this beautiful space for everyone
-          </p>
-        </div>
+      <div className="mx-auto max-w-3xl">
+        <SectionHeading
+          eyebrow="Goed om te weten"
+          title="Huisregels"
+          subtitle="Een paar afspraken houden het huis en de buurt prettig — voor u en voor wie na u komt."
+          tone="dark"
+        />
 
-        {/* Rules grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {rules.map((rule, index) => (
+        <div className="grid sm:grid-cols-2">
+          {rules.map((rule) => (
             <div
-              key={index}
-              className="bg-white rounded-xl p-8 border-2 border-gold-200 hover:border-gold-400 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              key={rule.title}
+              className="border-t border-white/10 py-8 sm:px-7 sm:first:border-t-0 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(odd)]:pl-0 sm:[&:nth-child(even)]:pr-0"
             >
-              <div className="text-5xl mb-4">{rule.icon}</div>
-              <h3 className="text-xl font-bold text-navy-900 mb-3">
+              <Icon name={rule.icon} className="h-6 w-6 text-brass-300" />
+              <h3 className="mt-5 font-display text-xl text-bone-50 sm:text-2xl">
                 {rule.title}
               </h3>
-              <p className="text-navy-600 leading-relaxed">
+              <p className="mt-2.5 text-sm leading-relaxed text-ink-300">
                 {rule.description}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Footer note */}
-        <div className="mt-12 bg-gradient-to-r from-gold-50 to-cream-50 border-l-4 border-gold-500 rounded-r-xl p-8 text-center shadow-lg">
-          <p className="text-navy-900 font-bold text-lg">
-            We appreciate your respect for our home and our neighbors.
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <p className="font-display text-xl font-light leading-snug text-bone-100 sm:text-2xl">
+            Dank dat u ons huis en onze buren met zorg behandelt.
           </p>
-          <p className="text-navy-600 text-sm mt-2">
-            Questions? Reach out via Airbnb chat anytime.
+          <p className="mt-3 text-sm text-ink-300">
+            Vragen? Stuur ons gerust een bericht via Airbnb.
           </p>
         </div>
       </div>

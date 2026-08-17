@@ -10,10 +10,9 @@ import Footer from "@/components/Footer";
 
 export default function GuestPortal() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-bone-100">
       <Hero />
-      <Navigation />
-      <main className="relative">
+      <main>
         <CheckIn />
         <Tour />
         <Rules />
@@ -22,6 +21,7 @@ export default function GuestPortal() {
         <Neighborhood />
       </main>
       <Footer />
+      <Navigation />
     </div>
   );
 }

@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Icon, { type IconName } from "./Icon";
 
-const navItems = [
-  { id: "checkin", label: "Check-in", icon: "📍" },
-  { id: "tour", label: "Tour", icon: "🏠" },
-  { id: "rules", label: "Rules", icon: "📋" },
-  { id: "guide", label: "Guide", icon: "📚" },
-  { id: "wifi", label: "WiFi", icon: "📶" },
-  { id: "contact", label: "Contact", icon: "💬" },
+const navItems: { id: string; label: string; icon: IconName }[] = [
+  { id: "checkin", label: "Check-in", icon: "key" },
+  { id: "tour", label: "Ruimtes", icon: "home" },
+  { id: "rules", label: "Regels", icon: "list" },
+  { id: "guide", label: "Gids", icon: "book" },
+  { id: "checkout", label: "Vertrek", icon: "check" },
+  { id: "contact", label: "Contact", icon: "chat" },
 ];
 
 export default function Navigation() {
@@ -16,50 +17,56 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) => ({
-        id: item.id,
-        element: document.getElementById(item.id),
-      }));
-
-      for (const section of sections) {
-        if (section.element) {
-          const rect = section.element.getBoundingClientRect();
-          if (rect.top <= window.innerHeight / 2) {
-            setActiveTab(section.id);
-          }
+      let current = "hero";
+      for (const item of navItems) {
+        const element = document.getElementById(item.id);
+        if (element && element.getBoundingClientRect().top <= 140) {
+          current = item.id;
         }
       }
+      setActiveTab(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white/98 backdrop-blur-md border-t-2 border-gold-300 z-40 safe-area-inset-bottom shadow-2xl">
-      <div className="grid grid-cols-6 max-w-6xl mx-auto">
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`flex flex-col items-center justify-center py-4 px-2 transition-all touch-manipulation font-semibold ${
-              activeTab === item.id
-                ? "text-gold-600 border-t-4 border-gold-500"
-                : "text-navy-600 hover:text-gold-500"
-            }`}
-            aria-label={item.label}
-          >
-            <span className="text-2xl mb-1">{item.icon}</span>
-            <span className="text-xs">{item.label}</span>
-          </button>
-        ))}
+    <nav
+      aria-label="Sectienavigatie"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink-950/92 backdrop-blur-xl"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <div className="mx-auto grid max-w-2xl grid-cols-6">
+        {navItems.map((item) => {
+          const isActive = activeTab === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              aria-current={isActive ? "true" : undefined}
+              className={`group relative flex min-h-[3.75rem] touch-manipulation flex-col items-center justify-center gap-1.5 px-1 py-2.5 transition-colors ${
+                isActive ? "text-brass-300" : "text-ink-300/70 active:text-bone-200"
+              }`}
+            >
+              <span
+                aria-hidden="true"
+                className={`absolute top-0 h-px w-8 transition-opacity ${
+                  isActive ? "bg-brass-400 opacity-100" : "opacity-0"
+                }`}
+              />
+              <Icon name={item.icon} className="h-[1.15rem] w-[1.15rem]" />
+              <span className="text-[0.6rem] leading-none tracking-wide">
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

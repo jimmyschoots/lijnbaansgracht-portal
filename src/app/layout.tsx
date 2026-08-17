@@ -1,22 +1,41 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Welkom in Lijnbaansgracht 204-1 | Amsterdam Guest Portal",
+  title: "Lijnbaansgracht 204-1 · Amsterdam",
   description:
-    "Your premium guest portal for Lijnbaansgracht 204-1 in Amsterdam. Check-in instructions, apartment tour, house rules, and local guide.",
+    "Alles voor uw verblijf aan de Lijnbaansgracht: check-in, huisgids, wifi en de buurt.",
   keywords: [
     "Amsterdam",
-    "Airbnb",
     "Lijnbaansgracht",
     "Guest Portal",
     "Canal Apartment",
   ],
   openGraph: {
-    title: "Welkom in Lijnbaansgracht 204-1",
-    description: "Your home away from home in historic Amsterdam",
+    title: "Lijnbaansgracht 204-1 · Amsterdam",
+    description: "Uw huis aan de gracht in het hart van Amsterdam",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d1620",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -25,8 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-white">{children}</body>
+    <html
+      lang="nl"
+      className={`${cormorant.variable} ${inter.variable} scroll-smooth`}
+    >
+      <body className="bg-bone-100 font-sans antialiased">{children}</body>
     </html>
   );
 }

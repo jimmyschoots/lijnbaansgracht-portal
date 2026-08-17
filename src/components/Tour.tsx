@@ -1,230 +1,168 @@
 "use client";
 
 import { useState } from "react";
+import Icon, { type IconName } from "./Icon";
+import SectionHeading from "./SectionHeading";
 
-const rooms = [
+const rooms: {
+  id: string;
+  name: string;
+  icon: IconName;
+  description: string;
+  details: string[];
+}[] = [
   {
-    id: "bedroom",
-    name: "Bedroom",
-    description: "Cozy bedroom with a queen-size bed, blackout curtains, and storage.",
+    id: "living",
+    name: "Woonkamer",
+    icon: "sofa",
+    description: "Open leefruimte met uitzicht op de gracht.",
     details: [
-      "Queen-size bed with premium linens",
-      "Blackout curtains for perfect sleep",
-      "Wooden wardrobe for storage",
-      "Window overlooking the canal",
+      "Comfortabele zithoek",
+      "Smart-tv met Netflix",
+      "Hoge ramen op de gracht",
+      "Eettafel voor twee",
     ],
-    icon: "🛏️",
   },
   {
-    id: "bathroom",
-    name: "Bathroom",
-    description: "Bright bathroom with shower, sink, and all amenities.",
+    id: "bedroom",
+    name: "Slaapkamer",
+    icon: "bed",
+    description: "Rustige slaapkamer aan de achterzijde.",
     details: [
-      "Modern shower with rainfall head",
-      "Heated mirror",
-      "Luxury toiletries",
-      "Heated towel rack",
+      "Tweepersoonsbed met linnen beddengoed",
+      "Verduisterende gordijnen",
+      "Houten kledingkast",
+      "Raam op de gracht",
     ],
-    icon: "🚿",
   },
   {
     id: "kitchen",
-    name: "Kitchen",
-    description: "Fully equipped kitchen for all your cooking needs.",
+    name: "Keuken",
+    icon: "pot",
+    description: "Volledig uitgeruste keuken.",
     details: [
-      "Induction cooktop",
-      "Oven",
-      "Microwave & dishwasher",
-      "Refrigerator & freezer",
-      "Coffee machine & kettle",
-      "Full set of cookware & dishes",
+      "Inductiekookplaat en oven",
+      "Vaatwasser en magnetron",
+      "Koelkast met vriesvak",
+      "Koffiemachine en waterkoker",
+      "Compleet servies en pannen",
     ],
-    icon: "🍳",
   },
   {
-    id: "living",
-    name: "Living Area",
-    description: "Open living space with canal views and comfortable seating.",
+    id: "bathroom",
+    name: "Badkamer",
+    icon: "shower",
+    description: "Lichte badkamer met regendouche.",
     details: [
-      "Comfortable seating",
-      "Smart TV with Netflix & more",
-      "Large windows with canal view",
-      "Dining table for two",
+      "Regendouche",
+      "Verwarmde spiegel",
+      "Verzorgingsproducten",
+      "Handdoekradiator",
     ],
-    icon: "🛋️",
   },
 ];
 
 export default function Tour() {
-  const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
-  const [activeCarousel, setActiveCarousel] = useState(0);
+  const [activeRoom, setActiveRoom] = useState(0);
+  const room = rooms[activeRoom];
 
-  const carouselImages = [
-    { id: 1, title: "Living Area", description: "Spacious living room with canal views" },
-    { id: 2, title: "Bedroom", description: "Comfortable bedroom with queen bed" },
-    { id: 3, title: "Kitchen", description: "Fully equipped modern kitchen" },
-    { id: 4, title: "Bathroom", description: "Bright and clean bathroom" },
-  ];
-
-  const nextImage = () => {
-    setActiveCarousel((prev) => (prev + 1) % carouselImages.length);
-  };
-
-  const prevImage = () => {
-    setActiveCarousel((prev) =>
-      prev === 0 ? carouselImages.length - 1 : prev - 1
-    );
-  };
+  const next = () => setActiveRoom((prev) => (prev + 1) % rooms.length);
+  const prev = () =>
+    setActiveRoom((prev) => (prev === 0 ? rooms.length - 1 : prev - 1));
 
   return (
     <section
       id="tour"
-      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-200"
+      className="bg-bone-50 px-6 py-24 sm:px-10 sm:py-32 lg:py-36"
     >
-      <div className="max-w-4xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-serif text-navy-900 mb-4">
-            Apartment Tour
-          </h2>
-          <p className="text-gold-600 text-lg font-light">
-            Explore your new home
-          </p>
-        </div>
+      <div className="mx-auto max-w-3xl">
+        <SectionHeading
+          eyebrow="Het appartement"
+          title="Rondleiding"
+          subtitle="Vier ruimtes op de eerste verdieping, met de gracht aan de voorzijde."
+        />
 
-        {/* Carousel */}
-        <div className="mb-16">
-          <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video mb-4 shadow-2xl border-2 border-gold-400">
-            {/* Placeholder for actual images */}
-            <div className="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-4">{carouselImages[activeCarousel].id === 1 ? '🛋️' : carouselImages[activeCarousel].id === 2 ? '🛏️' : carouselImages[activeCarousel].id === 3 ? '🍳' : '🚿'}</div>
-                <p className="text-navy-900 font-semibold text-lg">
-                  {carouselImages[activeCarousel].title}
-                </p>
-                <p className="text-navy-700/70">
-                  {carouselImages[activeCarousel].description}
-                </p>
+        {/* Room stage */}
+        <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-ink-950 sm:aspect-[16/10]">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brass-400/[0.06] blur-3xl"
+          />
+          <div className="relative flex h-full flex-col justify-between p-7 sm:p-10">
+            {/* Counter and controls share the top row so they never sit on the copy */}
+            <div className="flex items-center justify-between">
+              <span className="text-[0.68rem] uppercase tracking-[0.3em] text-brass-300">
+                {String(activeRoom + 1).padStart(2, "0")} / 0{rooms.length}
+              </span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={prev}
+                  aria-label="Vorige ruimte"
+                  className="flex h-11 w-11 items-center justify-center text-bone-200/60 transition-colors hover:text-brass-300"
+                >
+                  <Icon name="chevronLeft" className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Volgende ruimte"
+                  className="flex h-11 w-11 items-center justify-center text-bone-200/60 transition-colors hover:text-brass-300"
+                >
+                  <Icon name="chevronRight" className="h-5 w-5" />
+                </button>
               </div>
             </div>
 
-            {/* Navigation buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-cream-50/80 hover:bg-cream-50 text-navy-900 p-2 rounded-full transition-all"
-              aria-label="Previous image"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-cream-50/80 hover:bg-cream-50 text-navy-900 p-2 rounded-full transition-all"
-              aria-label="Next image"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+            <div>
+              <Icon
+                name={room.icon}
+                className="h-9 w-9 text-brass-300/80 sm:h-10 sm:w-10"
+              />
+              <h3 className="mt-5 font-display text-4xl font-light text-bone-50 sm:text-5xl">
+                {room.name}
+              </h3>
+              <p className="mt-3 text-sm text-ink-300 sm:text-base">
+                {room.description}
+              </p>
 
-            {/* Indicator dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {carouselImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCarousel(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === activeCarousel
-                      ? "bg-navy-900 w-8"
-                      : "bg-cream-50/60 hover:bg-cream-50"
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
+              <ul className="mt-7 grid gap-x-8 gap-y-2.5 border-t border-white/10 pt-6 sm:grid-cols-2">
+                {room.details.map((detail) => (
+                  <li
+                    key={detail}
+                    className="flex items-start gap-2.5 text-sm text-bone-200"
+                  >
+                    <Icon
+                      name="check"
+                      className="mt-1 h-3 w-3 shrink-0 text-brass-400"
+                    />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        {/* Interactive floorplan */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-serif text-navy-900 mb-8">
-            Floorplan (Click rooms for details)
-          </h3>
-          <div className="bg-gradient-to-br from-cream-100 to-white rounded-xl p-8 border-2 border-gold-300 shadow-lg">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {rooms.map((room) => (
-                <button
-                  key={room.id}
-                  onClick={() =>
-                    setSelectedRoom(
-                      selectedRoom === room.id ? null : room.id
-                    )
-                  }
-                  className={`p-6 rounded-lg border-2 transition-all transform hover:scale-105 cursor-pointer font-semibold ${
-                    selectedRoom === room.id
-                      ? "border-gold-500 bg-gold-50 shadow-lg text-navy-900"
-                      : "border-gold-200 bg-white hover:border-gold-400 text-navy-900"
-                  }`}
-                >
-                  <div className="text-4xl mb-2">{room.icon}</div>
-                  <p className="text-sm">
-                    {room.name}
-                  </p>
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Room selector */}
+        <div className="mt-4 grid grid-cols-4 gap-2 sm:gap-3">
+          {rooms.map((r, index) => {
+            const isActive = index === activeRoom;
+            return (
+              <button
+                key={r.id}
+                onClick={() => setActiveRoom(index)}
+                aria-pressed={isActive}
+                className={`flex min-h-[4.5rem] flex-col items-center justify-center gap-2 rounded-sm border px-1 py-3 transition-colors ${
+                  isActive
+                    ? "border-brass-400 bg-bone-100 text-ink-900"
+                    : "border-ink-900/10 text-ink-700/60 hover:border-ink-900/25"
+                }`}
+              >
+                <Icon name={r.icon} className="h-5 w-5" />
+                <span className="text-[0.65rem] tracking-wide">{r.name}</span>
+              </button>
+            );
+          })}
         </div>
-
-        {/* Room details */}
-        {selectedRoom && (
-          <div className="bg-gradient-to-r from-gold-50 to-cream-50 border-l-4 border-gold-500 p-8 rounded-r-xl animate-in fade-in shadow-lg">
-            {rooms
-              .filter((room) => room.id === selectedRoom)
-              .map((room) => (
-                <div key={room.id}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-4xl">{room.icon}</span>
-                    <div>
-                      <h4 className="text-2xl font-serif text-navy-900">
-                        {room.name}
-                      </h4>
-                      <p className="text-navy-700/70">{room.description}</p>
-                    </div>
-                  </div>
-                  <ul className="space-y-2 mt-6">
-                    {room.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="text-navy-700 mt-1">✓</span>
-                        <span className="text-navy-700/70">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
-        )}
       </div>
     </section>
   );

@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import Icon from "./Icon";
+import SectionHeading from "./SectionHeading";
 
 const checklistItems = [
-  { id: 1, task: "Strip bed and leave linens in the corner", category: "Bedroom" },
-  { id: 2, task: "Load dishwasher and start the cycle", category: "Kitchen" },
-  { id: 3, task: "Wipe down kitchen counters and sink", category: "Kitchen" },
-  { id: 4, task: "Empty trash and recycling bins", category: "Cleaning" },
-  { id: 5, task: "Close all windows and doors", category: "Security" },
-  { id: 6, task: "Turn off lights throughout apartment", category: "Utilities" },
-  { id: 7, task: "Leave key on the table", category: "Check-out" },
-  { id: 8, task: "Lock the front door", category: "Security" },
+  { id: 1, task: "Beddengoed afhalen en in de hoek leggen", category: "Slaapkamer" },
+  { id: 2, task: "Vaatwasser inruimen en aanzetten", category: "Keuken" },
+  { id: 3, task: "Aanrecht en gootsteen schoonmaken", category: "Keuken" },
+  { id: 4, task: "Afval en recycling legen", category: "Schoonmaak" },
+  { id: 5, task: "Alle ramen en deuren sluiten", category: "Veiligheid" },
+  { id: 6, task: "Lampen uitdoen", category: "Energie" },
+  { id: 7, task: "Thermostaat lager zetten", category: "Energie" },
+  { id: 8, task: "Sleutel op tafel leggen en voordeur op slot", category: "Vertrek" },
 ];
 
 export default function Checkout() {
@@ -18,7 +20,7 @@ export default function Checkout() {
 
   const toggleItem = (id: number) => {
     setCheckedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -27,93 +29,104 @@ export default function Checkout() {
   return (
     <section
       id="checkout"
-      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-200"
+      className="bg-bone-50 px-6 py-24 sm:px-10 sm:py-32 lg:py-36"
     >
-      <div className="max-w-4xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-serif text-navy-900 mb-4">
-            Check-out
-          </h2>
-          <p className="text-gold-600 text-lg font-light">
-            Make sure everything is perfect before you leave
-          </p>
-        </div>
+      <div className="mx-auto max-w-3xl">
+        <SectionHeading
+          eyebrow="Vertrek"
+          title="Check-out"
+          subtitle="Een korte lijst, zodat u niets vergeet en wij het huis klaar kunnen maken voor de volgende gast."
+        />
 
-        {/* Checkout time */}
-        <div className="bg-gradient-to-r from-gold-50 to-cream-50 border-l-4 border-gold-500 rounded-r-xl p-8 mb-8 shadow-lg">
-          <p className="text-lg font-bold text-navy-900">
-            🕐 Check-out Time: 12:00 PM
-          </p>
-          <p className="text-navy-600 mt-2">
-            Please vacate the apartment by noon on your final day. If you need late checkout, contact us via Airbnb chat as soon as possible.
-          </p>
-        </div>
-
-        {/* Checklist */}
-        <div className="space-y-4 mb-8">
-          {checklistItems.map((item) => (
-            <label
-              key={item.id}
-              className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gold-100 hover:border-gold-300 cursor-pointer transition-colors"
-            >
-              <input
-                type="checkbox"
-                checked={checkedItems.includes(item.id)}
-                onChange={() => toggleItem(item.id)}
-                className="w-6 h-6 mt-1 rounded accent-gold-600 cursor-pointer"
-              />
-              <div className="flex-1 min-w-0">
-                <p
-                  className={`font-medium transition-all ${
-                    checkedItems.includes(item.id)
-                      ? "text-navy-700/50 line-through"
-                      : "text-navy-900"
-                  }`}
-                >
-                  {item.task}
-                </p>
-                <p className="text-xs text-navy-700/60 mt-1">{item.category}</p>
-              </div>
-              <div className="text-2xl">
-                {checkedItems.includes(item.id) ? "✓" : "○"}
-              </div>
-            </label>
-          ))}
-        </div>
-
-        {/* Completion message */}
-        {allChecked && (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-            <p className="text-2xl mb-2">🎉</p>
-            <p className="text-green-950 font-semibold text-lg">
-              Perfect! You're all set for checkout.
+        <div className="flex items-start gap-5 border-y border-ink-900/10 py-7">
+          <Icon name="clock" className="mt-1.5 h-5 w-5 shrink-0 text-brass-500" />
+          <div>
+            <p className="font-display text-2xl font-light text-ink-900">
+              Uitchecken vóór 12.00 uur
             </p>
-            <p className="text-green-900/70 mt-2">
-              Thank you for being a wonderful guest. Safe travels!
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-700/70">
+              Later vertrekken? Laat het ons weten via Airbnb, dan kijken we wat
+              mogelijk is.
+            </p>
+          </div>
+        </div>
+
+        <ul className="mt-10">
+          {checklistItems.map((item) => {
+            const isChecked = checkedItems.includes(item.id);
+            return (
+              <li key={item.id} className="border-b border-ink-900/10">
+                <label className="flex min-h-[3.75rem] cursor-pointer items-center gap-4 py-4">
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleItem(item.id)}
+                    className="peer sr-only"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-colors ${
+                      isChecked
+                        ? "border-brass-400 bg-brass-400 text-ink-950"
+                        : "border-ink-900/25"
+                    }`}
+                  >
+                    {isChecked && <Icon name="check" className="h-3 w-3" />}
+                  </span>
+                  <span className="flex-1">
+                    <span
+                      className={`block text-[0.95rem] transition-colors ${
+                        isChecked
+                          ? "text-ink-700/40 line-through"
+                          : "text-ink-900"
+                      }`}
+                    >
+                      {item.task}
+                    </span>
+                    <span className="mt-0.5 block text-[0.68rem] uppercase tracking-[0.16em] text-ink-700/40">
+                      {item.category}
+                    </span>
+                  </span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+
+        {allChecked && (
+          <div className="mt-10 border-l-2 border-brass-400 bg-bone-100 px-7 py-8">
+            <p className="font-display text-2xl font-light text-ink-900">
+              Alles gedaan — dank u wel.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-ink-700/70">
+              Wat een fijne gast. Goede reis, en wie weet tot ziens aan de
+              gracht.
             </p>
           </div>
         )}
 
-        {/* Final notes */}
-        <div className="mt-8 bg-gold-50 border-l-4 border-navy-600 p-6 rounded-r-lg">
-          <h3 className="font-semibold text-navy-900 mb-3">Final Notes</h3>
-          <ul className="space-y-2 text-sm text-navy-700/70">
-            <li>
-              • The key must be left on the table for the next guests or collection
-            </li>
-            <li>
-              • Make sure all doors and windows are locked before leaving
-            </li>
-            <li>
-              • Turn off the thermostat to save energy
-            </li>
-            <li>
-              • Take any personal items with you
-            </li>
-            <li>
-              • Please leave us a review on Airbnb - we love feedback!
-            </li>
+        <div className="mt-12 border-t border-ink-900/10 pt-8">
+          <h3 className="text-[0.68rem] uppercase tracking-[0.2em] text-brass-500">
+            Tot slot
+          </h3>
+          <ul className="mt-4 space-y-2.5">
+            {[
+              "De sleutel blijft op tafel liggen — niet meenemen",
+              "Controleer of alle ramen en deuren dicht zijn",
+              "Neem uw persoonlijke spullen mee",
+              "Een review op Airbnb stellen we enorm op prijs",
+            ].map((note) => (
+              <li
+                key={note}
+                className="flex items-start gap-3 text-sm leading-relaxed text-ink-700/70"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-2 h-px w-3 shrink-0 bg-brass-400"
+                />
+                {note}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
