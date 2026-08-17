@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function GuestPortal() {
   return (
-    <div className="min-h-screen bg-cream-50 font-sans">
+    <div className="min-h-screen bg-white font-sans">
       <Hero />
       <Navigation />
       <main className="relative">

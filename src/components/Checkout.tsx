@@ -27,25 +27,25 @@ export default function Checkout() {
   return (
     <section
       id="checkout"
-      className="bg-white/50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
+      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-200"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-navy-900 mb-4">
+          <h2 className="text-5xl font-serif text-navy-900 mb-4">
             Check-out
           </h2>
-          <p className="text-navy-700/70 text-lg">
+          <p className="text-gold-600 text-lg font-light">
             Make sure everything is perfect before you leave
           </p>
         </div>
 
         {/* Checkout time */}
-        <div className="bg-gold-50 border border-gold-200 rounded-lg p-6 mb-8">
-          <p className="text-lg font-semibold text-navy-900">
+        <div className="bg-gradient-to-r from-gold-50 to-cream-50 border-l-4 border-gold-500 rounded-r-xl p-8 mb-8 shadow-lg">
+          <p className="text-lg font-bold text-navy-900">
             🕐 Check-out Time: 12:00 PM
           </p>
-          <p className="text-navy-700/70 mt-2">
+          <p className="text-navy-600 mt-2">
             Please vacate the apartment by noon on your final day. If you need late checkout, contact us via Airbnb chat as soon as possible.
           </p>
         </div>

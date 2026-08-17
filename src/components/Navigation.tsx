@@ -43,21 +43,21 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-cream-50/95 backdrop-blur-md border-t border-gold-200/50 z-40 safe-area-inset-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white/98 backdrop-blur-md border-t-2 border-gold-300 z-40 safe-area-inset-bottom shadow-2xl">
       <div className="grid grid-cols-6 max-w-6xl mx-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
-            className={`flex flex-col items-center justify-center py-3 px-2 transition-all touch-manipulation ${
+            className={`flex flex-col items-center justify-center py-4 px-2 transition-all touch-manipulation font-semibold ${
               activeTab === item.id
-                ? "text-gold-600 border-t-2 border-gold-600"
-                : "text-navy-600/60 hover:text-navy-600"
+                ? "text-gold-600 border-t-4 border-gold-500"
+                : "text-navy-600 hover:text-gold-500"
             }`}
             aria-label={item.label}
           >
-            <span className="text-xl mb-1">{item.icon}</span>
-            <span className="text-xs font-medium">{item.label}</span>
+            <span className="text-2xl mb-1">{item.icon}</span>
+            <span className="text-xs">{item.label}</span>
           </button>
         ))}
       </div>

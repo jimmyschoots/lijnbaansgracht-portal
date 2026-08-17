@@ -12,9 +12,15 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-b from-cream-50 to-cream-100 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 h-full flex flex-col justify-center items-center">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gold-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-gold-600 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 h-full flex flex-col justify-center items-center">
         <div className="text-center space-y-8">
           {/* Decorative element */}
           <div
@@ -24,7 +30,7 @@ export default function Hero() {
           >
             <svg
               viewBox="0 0 200 240"
-              className="w-full h-full text-navy-900/20"
+              className="w-full h-full text-gold-400"
               fill="currentColor"
             >
               {/* Simple grachtenpand illustration */}
@@ -58,30 +64,30 @@ export default function Hero() {
 
           {/* Main heading */}
           <div>
-            <p className="text-sm font-light tracking-widest text-navy-600/60 uppercase mb-4">
+            <p className="text-sm font-light tracking-widest text-gold-400 uppercase mb-4 letter-spacing-wide">
               Welkom
             </p>
             <h1
-              className={`text-4xl sm:text-5xl lg:text-6xl font-serif text-navy-900 leading-tight transition-all duration-1000 ${
+              className={`text-5xl sm:text-6xl lg:text-7xl font-serif text-white leading-tight transition-all duration-1000 ${
                 isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
               Lijnbaansgracht 204-1
             </h1>
-            <p className="text-lg sm:text-xl text-navy-700/70 mt-6 font-light">
+            <p className="text-xl sm:text-2xl text-gold-300 mt-6 font-light">
               Huis aan de gracht in het hart van Amsterdam
             </p>
           </div>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg text-navy-600/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-cream-100 max-w-2xl mx-auto leading-relaxed font-light">
             Your home away from home. Everything you need for a perfect stay in Amsterdam's most charming neighborhood.
           </p>
 
           {/* Scroll hint */}
           <div className="pt-12 animate-bounce">
             <svg
-              className="w-6 h-6 mx-auto text-navy-600/40"
+              className="w-6 h-6 mx-auto text-gold-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

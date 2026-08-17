@@ -79,24 +79,24 @@ export default function Tour() {
   return (
     <section
       id="tour"
-      className="bg-cream-50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
+      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-200"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-navy-900 mb-4">
+          <h2 className="text-5xl font-serif text-navy-900 mb-4">
             Apartment Tour
           </h2>
-          <p className="text-navy-700/70 text-lg">
+          <p className="text-gold-600 text-lg font-light">
             Explore your new home
           </p>
         </div>
 
         {/* Carousel */}
         <div className="mb-16">
-          <div className="relative bg-charcoal-200 rounded-lg overflow-hidden aspect-video mb-4">
+          <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video mb-4 shadow-2xl border-2 border-gold-400">
             {/* Placeholder for actual images */}
-            <div className="w-full h-full bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center">
+            <div className="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl mb-4">{carouselImages[activeCarousel].id === 1 ? '🛋️' : carouselImages[activeCarousel].id === 2 ? '🛏️' : carouselImages[activeCarousel].id === 3 ? '🍳' : '🚿'}</div>
                 <p className="text-navy-900 font-semibold text-lg">
@@ -168,10 +168,10 @@ export default function Tour() {
 
         {/* Interactive floorplan */}
         <div className="mb-16">
-          <h3 className="text-2xl font-serif text-navy-900 mb-8">
+          <h3 className="text-3xl font-serif text-navy-900 mb-8">
             Floorplan (Click rooms for details)
           </h3>
-          <div className="bg-gradient-to-br from-gold-50 to-gold-100 rounded-lg p-8 border border-gold-200">
+          <div className="bg-gradient-to-br from-cream-100 to-white rounded-xl p-8 border-2 border-gold-300 shadow-lg">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {rooms.map((room) => (
                 <button
@@ -181,14 +181,14 @@ export default function Tour() {
                       selectedRoom === room.id ? null : room.id
                     )
                   }
-                  className={`p-6 rounded-lg border-2 transition-all transform hover:scale-105 cursor-pointer ${
+                  className={`p-6 rounded-lg border-2 transition-all transform hover:scale-105 cursor-pointer font-semibold ${
                     selectedRoom === room.id
-                      ? "border-navy-900 bg-cream-50 shadow-lg"
-                      : "border-gold-200 bg-cream-50/50 hover:border-gold-300"
+                      ? "border-gold-500 bg-gold-50 shadow-lg text-navy-900"
+                      : "border-gold-200 bg-white hover:border-gold-400 text-navy-900"
                   }`}
                 >
                   <div className="text-4xl mb-2">{room.icon}</div>
-                  <p className="font-semibold text-navy-900 text-sm">
+                  <p className="text-sm">
                     {room.name}
                   </p>
                 </button>
@@ -199,7 +199,7 @@ export default function Tour() {
 
         {/* Room details */}
         {selectedRoom && (
-          <div className="bg-gold-50 border-l-4 border-navy-600 p-8 rounded-r-lg animate-in fade-in">
+          <div className="bg-gradient-to-r from-gold-50 to-cream-50 border-l-4 border-gold-500 p-8 rounded-r-xl animate-in fade-in shadow-lg">
             {rooms
               .filter((room) => room.id === selectedRoom)
               .map((room) => (
