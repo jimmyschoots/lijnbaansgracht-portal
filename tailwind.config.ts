@@ -1,0 +1,87 @@
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['Georgia', 'serif'],
+        sans: ['Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+      },
+      colors: {
+        navy: {
+          50: '#f0f4f9',
+          100: '#e0e9f2',
+          200: '#c1d3e5',
+          300: '#a1bdd8',
+          400: '#5a8abc',
+          500: '#1B3A57',
+          600: '#18354f',
+          700: '#132a47',
+          800: '#0f203f',
+          900: '#0b1537',
+          950: '#050a1a',
+        },
+        gold: {
+          50: '#fdf9f3',
+          100: '#fbf2e6',
+          200: '#f7e5cd',
+          300: '#f3d8b5',
+          400: '#E8C67D',
+          500: '#D4AF37',
+          600: '#c79f2f',
+          700: '#b88f27',
+          800: '#a9801f',
+          900: '#8a6717',
+          950: '#5c460e',
+        },
+        sage: {
+          50: '#f5faf9',
+          100: '#ebf5f3',
+          200: '#d7ebe7',
+          300: '#c3e1db',
+          400: '#95d1bf',
+          500: '#7BA99D',
+          600: '#6f9c91',
+          700: '#638f85',
+          800: '#528879',
+          900: '#3d6657',
+          950: '#2a4438',
+        },
+        cream: {
+          50: '#fefdfb',
+          100: '#fdfbf8',
+          200: '#fbf7f1',
+          300: '#f9f3ea',
+          400: '#f7ebe1',
+          500: '#F5F3F0',
+          600: '#f2ede8',
+          700: '#ebe5df',
+          800: '#e4ddd6',
+          900: '#d9d2c9',
+          950: '#ccc4b9',
+        },
+        charcoal: {
+          50: '#f9f9f9',
+          100: '#f3f3f3',
+          200: '#e7e7e7',
+          300: '#dbdbdb',
+          400: '#bfbfbf',
+          500: '#a3a3a3',
+          600: '#2C2C2C',
+          700: '#262626',
+          800: '#1a1a1a',
+          900: '#0d0d0d',
+          950: '#000000',
+        },
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;

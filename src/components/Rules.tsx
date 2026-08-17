@@ -41,15 +41,15 @@ export default function Rules() {
   return (
     <section
       id="rules"
-      className="bg-white/50 py-20 px-4 sm:px-6 lg:px-8 border-t border-amber-100"
+      className="bg-cream-50/50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-amber-950 mb-4">
+          <h2 className="text-4xl font-serif text-navy-900 mb-4">
             House Rules
           </h2>
-          <p className="text-amber-900/70 text-lg">
+          <p className="text-navy-700/70 text-lg">
             Help us maintain this beautiful space for everyone
           </p>
         </div>
@@ -59,13 +59,13 @@ export default function Rules() {
           {rules.map((rule, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 border border-amber-100 hover:border-amber-300 transition-colors shadow-sm hover:shadow-md"
+              className="bg-cream-50 rounded-lg p-6 border border-gold-100 hover:border-gold-300 transition-colors shadow-sm hover:shadow-md"
             >
               <div className="text-4xl mb-4">{rule.icon}</div>
-              <h3 className="text-xl font-semibold text-amber-950 mb-3">
+              <h3 className="text-xl font-semibold text-navy-900 mb-3">
                 {rule.title}
               </h3>
-              <p className="text-amber-900/70 leading-relaxed">
+              <p className="text-navy-700/70 leading-relaxed">
                 {rule.description}
               </p>
             </div>
@@ -73,11 +73,11 @@ export default function Rules() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
-          <p className="text-amber-950">
+        <div className="mt-12 bg-gold-50 border border-gold-200 rounded-lg p-6 text-center">
+          <p className="text-navy-900">
             We appreciate your respect for our home and our neighbors.
           </p>
-          <p className="text-amber-900/70 text-sm mt-2">
+          <p className="text-navy-700/70 text-sm mt-2">
             Questions? Reach out via Airbnb chat anytime.
           </p>
         </div>

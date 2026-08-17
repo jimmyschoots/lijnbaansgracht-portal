@@ -79,30 +79,30 @@ export default function Tour() {
   return (
     <section
       id="tour"
-      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t border-amber-100"
+      className="bg-cream-50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-amber-950 mb-4">
+          <h2 className="text-4xl font-serif text-navy-900 mb-4">
             Apartment Tour
           </h2>
-          <p className="text-amber-900/70 text-lg">
+          <p className="text-navy-700/70 text-lg">
             Explore your new home
           </p>
         </div>
 
         {/* Carousel */}
         <div className="mb-16">
-          <div className="relative bg-gray-200 rounded-lg overflow-hidden aspect-video mb-4">
+          <div className="relative bg-charcoal-200 rounded-lg overflow-hidden aspect-video mb-4">
             {/* Placeholder for actual images */}
-            <div className="w-full h-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+            <div className="w-full h-full bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl mb-4">{carouselImages[activeCarousel].id === 1 ? '🛋️' : carouselImages[activeCarousel].id === 2 ? '🛏️' : carouselImages[activeCarousel].id === 3 ? '🍳' : '🚿'}</div>
-                <p className="text-amber-950 font-semibold text-lg">
+                <p className="text-navy-900 font-semibold text-lg">
                   {carouselImages[activeCarousel].title}
                 </p>
-                <p className="text-amber-900/70">
+                <p className="text-navy-700/70">
                   {carouselImages[activeCarousel].description}
                 </p>
               </div>
@@ -111,7 +111,7 @@ export default function Tour() {
             {/* Navigation buttons */}
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-amber-900 p-2 rounded-full transition-all"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-cream-50/80 hover:bg-cream-50 text-navy-900 p-2 rounded-full transition-all"
               aria-label="Previous image"
             >
               <svg
@@ -130,7 +130,7 @@ export default function Tour() {
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-amber-900 p-2 rounded-full transition-all"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-cream-50/80 hover:bg-cream-50 text-navy-900 p-2 rounded-full transition-all"
               aria-label="Next image"
             >
               <svg
@@ -156,8 +156,8 @@ export default function Tour() {
                   onClick={() => setActiveCarousel(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === activeCarousel
-                      ? "bg-amber-900 w-8"
-                      : "bg-white/60 hover:bg-white"
+                      ? "bg-navy-900 w-8"
+                      : "bg-cream-50/60 hover:bg-cream-50"
                   }`}
                   aria-label={`Go to image ${index + 1}`}
                 />
@@ -168,10 +168,10 @@ export default function Tour() {
 
         {/* Interactive floorplan */}
         <div className="mb-16">
-          <h3 className="text-2xl font-serif text-amber-950 mb-8">
+          <h3 className="text-2xl font-serif text-navy-900 mb-8">
             Floorplan (Click rooms for details)
           </h3>
-          <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-8 border border-amber-200">
+          <div className="bg-gradient-to-br from-gold-50 to-gold-100 rounded-lg p-8 border border-gold-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {rooms.map((room) => (
                 <button
@@ -183,12 +183,12 @@ export default function Tour() {
                   }
                   className={`p-6 rounded-lg border-2 transition-all transform hover:scale-105 cursor-pointer ${
                     selectedRoom === room.id
-                      ? "border-amber-900 bg-white shadow-lg"
-                      : "border-amber-200 bg-white/50 hover:border-amber-300"
+                      ? "border-navy-900 bg-cream-50 shadow-lg"
+                      : "border-gold-200 bg-cream-50/50 hover:border-gold-300"
                   }`}
                 >
                   <div className="text-4xl mb-2">{room.icon}</div>
-                  <p className="font-semibold text-amber-950 text-sm">
+                  <p className="font-semibold text-navy-900 text-sm">
                     {room.name}
                   </p>
                 </button>
@@ -199,7 +199,7 @@ export default function Tour() {
 
         {/* Room details */}
         {selectedRoom && (
-          <div className="bg-amber-50 border-l-4 border-amber-900 p-8 rounded-r-lg animate-in fade-in">
+          <div className="bg-gold-50 border-l-4 border-navy-600 p-8 rounded-r-lg animate-in fade-in">
             {rooms
               .filter((room) => room.id === selectedRoom)
               .map((room) => (
@@ -207,17 +207,17 @@ export default function Tour() {
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-4xl">{room.icon}</span>
                     <div>
-                      <h4 className="text-2xl font-serif text-amber-950">
+                      <h4 className="text-2xl font-serif text-navy-900">
                         {room.name}
                       </h4>
-                      <p className="text-amber-900/70">{room.description}</p>
+                      <p className="text-navy-700/70">{room.description}</p>
                     </div>
                   </div>
                   <ul className="space-y-2 mt-6">
                     {room.details.map((detail, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="text-amber-900 mt-1">✓</span>
-                        <span className="text-amber-900/70">{detail}</span>
+                        <span className="text-navy-700 mt-1">✓</span>
+                        <span className="text-navy-700/70">{detail}</span>
                       </li>
                     ))}
                   </ul>

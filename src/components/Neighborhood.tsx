@@ -47,58 +47,58 @@ export default function Neighborhood() {
   return (
     <section
       id="neighborhood"
-      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t border-amber-100"
+      className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-amber-950 mb-4">
+          <h2 className="text-4xl font-serif text-navy-900 mb-4">
             Neighborhood
           </h2>
-          <p className="text-amber-900/70 text-lg">
+          <p className="text-navy-700/70 text-lg">
             Handpicked spots near Lijnbaansgracht
           </p>
         </div>
 
         {/* Address card */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-8 mb-12">
-          <h3 className="font-serif text-2xl text-amber-950 mb-3">Our Address</h3>
-          <p className="text-lg text-amber-950 font-semibold mb-2">
+        <div className="bg-gold-50 border border-gold-200 rounded-lg p-8 mb-12">
+          <h3 className="font-serif text-2xl text-navy-900 mb-3">Our Address</h3>
+          <p className="text-lg text-navy-900 font-semibold mb-2">
             Lijnbaansgracht 204-1
           </p>
-          <p className="text-amber-900/70 mb-2">
+          <p className="text-navy-700/70 mb-2">
             1016 XA Amsterdam, Netherlands
           </p>
-          <p className="text-sm text-amber-900/60">
+          <p className="text-sm text-navy-700/60">
             📍 Located in De Pijp neighborhood, near Albert Cuyp Market
           </p>
         </div>
 
         {/* Recommended spots */}
-        <h3 className="text-2xl font-serif text-amber-950 mb-8">
+        <h3 className="text-2xl font-serif text-navy-900 mb-8">
           Recommended Spots
         </h3>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {spots.map((spot, index) => (
             <div
               key={index}
-              className="bg-white border border-amber-100 rounded-lg p-6 hover:border-amber-300 hover:shadow-md transition-all"
+              className="bg-white border border-gold-100 rounded-lg p-6 hover:border-gold-300 hover:shadow-md transition-all"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{spot.icon}</span>
                   <div>
-                    <h4 className="font-semibold text-amber-950">
+                    <h4 className="font-semibold text-navy-900">
                       {spot.name}
                     </h4>
-                    <p className="text-xs text-amber-900/60">{spot.type}</p>
+                    <p className="text-xs text-navy-700/60">{spot.type}</p>
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-amber-900/60 mb-3">
+              <p className="text-sm text-navy-700/60 mb-3">
                 ⏱️ {spot.distance}
               </p>
-              <p className="text-sm text-amber-900/70 leading-relaxed">
+              <p className="text-sm text-navy-700/70 leading-relaxed">
                 {spot.description}
               </p>
             </div>
@@ -106,16 +106,16 @@ export default function Neighborhood() {
         </div>
 
         {/* Local tips */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-8">
-          <h3 className="font-serif text-2xl text-amber-950 mb-6">
+        <div className="bg-gold-50 border border-gold-200 rounded-lg p-8">
+          <h3 className="font-serif text-2xl text-navy-900 mb-6">
             Local Tips
           </h3>
           <div className="space-y-4">
             <div className="flex gap-4">
               <span className="text-2xl flex-shrink-0">🚲</span>
               <div>
-                <p className="font-semibold text-amber-950">Cycling</p>
-                <p className="text-amber-900/70 text-sm">
+                <p className="font-semibold text-navy-900">Cycling</p>
+                <p className="text-navy-700/70 text-sm">
                   Amsterdam is bike-friendly. There are plenty of bike rental shops nearby. Consider renting for exploring the city.
                 </p>
               </div>
@@ -123,8 +123,8 @@ export default function Neighborhood() {
             <div className="flex gap-4">
               <span className="text-2xl flex-shrink-0">🚇</span>
               <div>
-                <p className="font-semibold text-amber-950">Public Transport</p>
-                <p className="text-amber-900/70 text-sm">
+                <p className="font-semibold text-navy-900">Public Transport</p>
+                <p className="text-navy-700/70 text-sm">
                   Trams, buses, and the metro run frequently. Get an OV-chipkaart for unlimited travel during your stay.
                 </p>
               </div>
@@ -132,8 +132,8 @@ export default function Neighborhood() {
             <div className="flex gap-4">
               <span className="text-2xl flex-shrink-0">🍷</span>
               <div>
-                <p className="font-semibold text-amber-950">Gezelligheid</p>
-                <p className="text-amber-900/70 text-sm">
+                <p className="font-semibold text-navy-900">Gezelligheid</p>
+                <p className="text-navy-700/70 text-sm">
                   This Dutch concept means coziness. Enjoy a drink at a brown café (bruine kroeg) and experience the local vibe.
                 </p>
               </div>
@@ -141,8 +141,8 @@ export default function Neighborhood() {
             <div className="flex gap-4">
               <span className="text-2xl flex-shrink-0">🥐</span>
               <div>
-                <p className="font-semibold text-amber-950">Breakfast & Brunch</p>
-                <p className="text-amber-900/70 text-sm">
+                <p className="font-semibold text-navy-900">Breakfast & Brunch</p>
+                <p className="text-navy-700/70 text-sm">
                   The neighborhood has excellent cafés. Try fresh stroopwafels and local pastries at nearby bakeries.
                 </p>
               </div>

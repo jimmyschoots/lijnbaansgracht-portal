@@ -27,25 +27,25 @@ export default function Checkout() {
   return (
     <section
       id="checkout"
-      className="bg-white/50 py-20 px-4 sm:px-6 lg:px-8 border-t border-amber-100"
+      className="bg-white/50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gold-100"
     >
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-amber-950 mb-4">
+          <h2 className="text-4xl font-serif text-navy-900 mb-4">
             Check-out
           </h2>
-          <p className="text-amber-900/70 text-lg">
+          <p className="text-navy-700/70 text-lg">
             Make sure everything is perfect before you leave
           </p>
         </div>
 
         {/* Checkout time */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-8">
-          <p className="text-lg font-semibold text-amber-950">
+        <div className="bg-gold-50 border border-gold-200 rounded-lg p-6 mb-8">
+          <p className="text-lg font-semibold text-navy-900">
             🕐 Check-out Time: 12:00 PM
           </p>
-          <p className="text-amber-900/70 mt-2">
+          <p className="text-navy-700/70 mt-2">
             Please vacate the apartment by noon on your final day. If you need late checkout, contact us via Airbnb chat as soon as possible.
           </p>
         </div>
@@ -55,25 +55,25 @@ export default function Checkout() {
           {checklistItems.map((item) => (
             <label
               key={item.id}
-              className="flex items-start gap-4 p-4 bg-white rounded-lg border border-amber-100 hover:border-amber-300 cursor-pointer transition-colors"
+              className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gold-100 hover:border-gold-300 cursor-pointer transition-colors"
             >
               <input
                 type="checkbox"
                 checked={checkedItems.includes(item.id)}
                 onChange={() => toggleItem(item.id)}
-                className="w-6 h-6 mt-1 rounded accent-amber-900 cursor-pointer"
+                className="w-6 h-6 mt-1 rounded accent-gold-600 cursor-pointer"
               />
               <div className="flex-1 min-w-0">
                 <p
                   className={`font-medium transition-all ${
                     checkedItems.includes(item.id)
-                      ? "text-amber-900/50 line-through"
-                      : "text-amber-950"
+                      ? "text-navy-700/50 line-through"
+                      : "text-navy-900"
                   }`}
                 >
                   {item.task}
                 </p>
-                <p className="text-xs text-amber-900/60 mt-1">{item.category}</p>
+                <p className="text-xs text-navy-700/60 mt-1">{item.category}</p>
               </div>
               <div className="text-2xl">
                 {checkedItems.includes(item.id) ? "✓" : "○"}
@@ -96,9 +96,9 @@ export default function Checkout() {
         )}
 
         {/* Final notes */}
-        <div className="mt-8 bg-amber-50 border-l-4 border-amber-900 p-6 rounded-r-lg">
-          <h3 className="font-semibold text-amber-950 mb-3">Final Notes</h3>
-          <ul className="space-y-2 text-sm text-amber-900/70">
+        <div className="mt-8 bg-gold-50 border-l-4 border-navy-600 p-6 rounded-r-lg">
+          <h3 className="font-semibold text-navy-900 mb-3">Final Notes</h3>
+          <ul className="space-y-2 text-sm text-navy-700/70">
             <li>
               • The key must be left on the table for the next guests or collection
             </li>

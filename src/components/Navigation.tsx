@@ -43,7 +43,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-amber-200/50 z-40 safe-area-inset-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 bg-cream-50/95 backdrop-blur-md border-t border-gold-200/50 z-40 safe-area-inset-bottom">
       <div className="grid grid-cols-6 max-w-6xl mx-auto">
         {navItems.map((item) => (
           <button
@@ -51,8 +51,8 @@ export default function Navigation() {
             onClick={() => scrollToSection(item.id)}
             className={`flex flex-col items-center justify-center py-3 px-2 transition-all touch-manipulation ${
               activeTab === item.id
-                ? "text-amber-900 border-t-2 border-amber-900"
-                : "text-amber-700/60 hover:text-amber-700"
+                ? "text-gold-600 border-t-2 border-gold-600"
+                : "text-navy-600/60 hover:text-navy-600"
             }`}
             aria-label={item.label}
           >

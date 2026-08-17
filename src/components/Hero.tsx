@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-b from-amber-50 to-white overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-b from-cream-50 to-cream-100 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 h-full flex flex-col justify-center items-center">
         <div className="text-center space-y-8">
@@ -24,7 +24,7 @@ export default function Hero() {
           >
             <svg
               viewBox="0 0 200 240"
-              className="w-full h-full text-amber-900/20"
+              className="w-full h-full text-navy-900/20"
               fill="currentColor"
             >
               {/* Simple grachtenpand illustration */}
@@ -58,30 +58,30 @@ export default function Hero() {
 
           {/* Main heading */}
           <div>
-            <p className="text-sm font-light tracking-widest text-amber-900/60 uppercase mb-4">
+            <p className="text-sm font-light tracking-widest text-navy-600/60 uppercase mb-4">
               Welkom
             </p>
             <h1
-              className={`text-4xl sm:text-5xl lg:text-6xl font-serif text-amber-950 leading-tight transition-all duration-1000 ${
+              className={`text-4xl sm:text-5xl lg:text-6xl font-serif text-navy-900 leading-tight transition-all duration-1000 ${
                 isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
               Lijnbaansgracht 204-1
             </h1>
-            <p className="text-lg sm:text-xl text-amber-900/70 mt-6 font-light">
+            <p className="text-lg sm:text-xl text-navy-700/70 mt-6 font-light">
               Huis aan de gracht in het hart van Amsterdam
             </p>
           </div>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg text-amber-900/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-navy-600/60 max-w-2xl mx-auto leading-relaxed">
             Your home away from home. Everything you need for a perfect stay in Amsterdam's most charming neighborhood.
           </p>
 
           {/* Scroll hint */}
           <div className="pt-12 animate-bounce">
             <svg
-              className="w-6 h-6 mx-auto text-amber-900/40"
+              className="w-6 h-6 mx-auto text-navy-600/40"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
