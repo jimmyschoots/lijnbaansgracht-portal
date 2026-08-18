@@ -1,6 +1,7 @@
 import Icon, { type IconName } from "./Icon";
 import SectionHeading from "./SectionHeading";
 import {
+  AIRBNB_GUIDEBOOK_URL,
   APARTMENT_ADDRESS,
   mapSearchUrl,
   walkingDirectionsUrl,
@@ -161,6 +162,28 @@ export default function Neighborhood() {
             </a>
           ))}
         </div>
+
+        {/* The long version lives in our Airbnb guidebook */}
+        <a
+          href={AIRBNB_GUIDEBOOK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex min-h-[4.5rem] items-center justify-between gap-6 border-y border-ink-900/10 py-7 transition-colors hover:bg-bone-50 sm:px-7"
+        >
+          <div>
+            <p className="font-display text-xl text-ink-900 transition-colors group-hover:text-brass-600 sm:text-2xl">
+              More of our favourites
+            </p>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-700/70">
+              Restaurants, markets and museums, collected in our Amsterdam
+              guidebook on Airbnb.
+            </p>
+          </div>
+          <Icon
+            name="arrowUpRight"
+            className="h-5 w-5 shrink-0 text-brass-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          />
+        </a>
 
         {/* Tips */}
         <div className="mt-16 bg-ink-950 px-7 py-10 sm:px-10 sm:py-12">

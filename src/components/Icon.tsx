@@ -232,6 +232,12 @@ const paths: Record<string, React.ReactNode> = {
       <path d="m5.5 13 6.5 6.5 6.5-6.5" />
     </>
   ),
+  arrowUpRight: (
+    <>
+      <path d="M7 17 17 7" />
+      <path d="M8.5 7H17v8.5" />
+    </>
+  ),
   chevronLeft: <path d="m15 5-7 7 7 7" />,
   chevronRight: <path d="m9 5 7 7-7 7" />,
   chevronDown: <path d="m5 9 7 7 7-7" />,

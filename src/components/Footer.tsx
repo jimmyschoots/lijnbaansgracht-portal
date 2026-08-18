@@ -1,6 +1,6 @@
 import CanalHouse from "./CanalHouse";
 import Icon from "./Icon";
-import { AIRBNB_MESSAGES_URL } from "@/lib/links";
+import { AIRBNB_URL } from "@/lib/links";
 
 const quickInfo = [
   { label: "Address", value: "Lijnbaansgracht 204-1, Amsterdam" },
@@ -40,12 +40,12 @@ export default function Footer() {
                 within half an hour.
               </p>
               <a
-                href={AIRBNB_MESSAGES_URL}
+                href={AIRBNB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex min-h-[2.75rem] items-center gap-3 rounded-sm border border-brass-400/40 px-5 text-[0.7rem] uppercase tracking-[0.2em] text-brass-300 transition-colors hover:border-brass-400 hover:text-brass-200"
               >
-                Open Airbnb messages
+                Message us on Airbnb
               </a>
             </div>
           </div>
