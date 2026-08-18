@@ -41,7 +41,7 @@ export default function Hero() {
           }`}
         >
           <p className="text-[0.68rem] uppercase tracking-[0.42em] text-brass-300">
-            Welkom
+            Welcome
           </p>
 
           <h1 className="mt-6 font-display text-[3.25rem] font-light leading-[0.95] tracking-tight text-bone-50 sm:text-7xl lg:text-8xl">
@@ -52,12 +52,12 @@ export default function Hero() {
           <div className="mt-8 h-px w-16 bg-brass-400/70" />
 
           <p className="mt-8 max-w-md font-display text-xl font-light leading-snug text-bone-200 sm:text-2xl">
-            Uw huis aan de gracht, in het hart van Amsterdam.
+            Your house on the canal, in the heart of Amsterdam.
           </p>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-300 sm:text-[0.95rem]">
-            Alles wat u nodig heeft voor een perfect verblijf — check-in,
-            huisgids, wifi en onze favoriete plekken in de buurt.
+            Everything you need for a perfect stay — arrival, house guide, wifi,
+            and our favourite places in the neighbourhood.
           </p>
         </div>
       </div>

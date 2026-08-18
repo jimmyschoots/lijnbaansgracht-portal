@@ -5,14 +5,14 @@ import Icon from "./Icon";
 import SectionHeading from "./SectionHeading";
 
 const checklistItems = [
-  { id: 1, task: "Beddengoed afhalen en in de hoek leggen", category: "Slaapkamer" },
-  { id: 2, task: "Vaatwasser inruimen en aanzetten", category: "Keuken" },
-  { id: 3, task: "Aanrecht en gootsteen schoonmaken", category: "Keuken" },
-  { id: 4, task: "Afval en recycling legen", category: "Schoonmaak" },
-  { id: 5, task: "Alle ramen en deuren sluiten", category: "Veiligheid" },
-  { id: 6, task: "Lampen uitdoen", category: "Energie" },
-  { id: 7, task: "Thermostaat lager zetten", category: "Energie" },
-  { id: 8, task: "Sleutel op tafel leggen en voordeur op slot", category: "Vertrek" },
+  { id: 1, task: "Strip the bed and leave the linen in the corner", category: "Bedroom" },
+  { id: 2, task: "Load the dishwasher and start it", category: "Kitchen" },
+  { id: 3, task: "Wipe down the worktop and sink", category: "Kitchen" },
+  { id: 4, task: "Empty the bins and recycling", category: "Cleaning" },
+  { id: 5, task: "Close all windows and doors", category: "Security" },
+  { id: 6, task: "Switch off the lights", category: "Energy" },
+  { id: 7, task: "Turn the thermostat down", category: "Energy" },
+  { id: 8, task: "Leave the key on the table and lock the front door", category: "Leaving" },
 ];
 
 export default function Checkout() {
@@ -33,20 +33,20 @@ export default function Checkout() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Vertrek"
+          eyebrow="Leaving"
           title="Check-out"
-          subtitle="Een korte lijst, zodat u niets vergeet en wij het huis klaar kunnen maken voor de volgende gast."
+          subtitle="A short list, so nothing gets forgotten and we can get the apartment ready for the next guest."
         />
 
         <div className="flex items-start gap-5 border-y border-ink-900/10 py-7">
           <Icon name="clock" className="mt-1.5 h-5 w-5 shrink-0 text-brass-500" />
           <div>
             <p className="font-display text-2xl font-light text-ink-900">
-              Uitchecken vóór 12.00 uur
+              Check out before 12:00 noon
             </p>
             <p className="mt-1.5 text-sm leading-relaxed text-ink-700/70">
-              Later vertrekken? Laat het ons weten via Airbnb, dan kijken we wat
-              mogelijk is.
+              Need to leave later? Let us know on Airbnb and we will see what is
+              possible.
             </p>
           </div>
         </div>
@@ -96,25 +96,25 @@ export default function Checkout() {
         {allChecked && (
           <div className="mt-10 border-l-2 border-brass-400 bg-bone-100 px-7 py-8">
             <p className="font-display text-2xl font-light text-ink-900">
-              Alles gedaan — dank u wel.
+              All done — thank you.
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-700/70">
-              Wat een fijne gast. Goede reis, en wie weet tot ziens aan de
-              gracht.
+              You have been a wonderful guest. Safe travels, and perhaps we will
+              see you again on the canal.
             </p>
           </div>
         )}
 
         <div className="mt-12 border-t border-ink-900/10 pt-8">
           <h3 className="text-[0.68rem] uppercase tracking-[0.2em] text-brass-500">
-            Tot slot
+            One last thing
           </h3>
           <ul className="mt-4 space-y-2.5">
             {[
-              "De sleutel blijft op tafel liggen — niet meenemen",
-              "Controleer of alle ramen en deuren dicht zijn",
-              "Neem uw persoonlijke spullen mee",
-              "Een review op Airbnb stellen we enorm op prijs",
+              "The key stays on the table — please don't take it with you",
+              "Double-check that every window and door is closed",
+              "Take all of your belongings with you",
+              "A review on Airbnb would mean a great deal to us",
             ].map((note) => (
               <li
                 key={note}

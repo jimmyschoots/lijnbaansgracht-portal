@@ -1,8 +1,15 @@
 import Icon, { type IconName } from "./Icon";
 import SectionHeading from "./SectionHeading";
+import {
+  APARTMENT_ADDRESS,
+  mapSearchUrl,
+  walkingDirectionsUrl,
+} from "@/lib/links";
 
 const spots: {
   name: string;
+  /** What we hand Google Maps — more precise than the display name. */
+  destination: string;
   type: string;
   distance: string;
   icon: IconName;
@@ -10,74 +17,80 @@ const spots: {
 }[] = [
   {
     name: "De Negen Straatjes",
-    type: "Winkels & cafés",
-    distance: "10 min lopen",
+    destination: "De Negen Straatjes, Amsterdam",
+    type: "Shops & cafés",
+    distance: "10 min walk",
     icon: "cart",
     description:
-      "Negen dwarsstraatjes vol kleine winkels, boekhandels en koffiezaken tussen de grachten.",
+      "Nine little cross streets between the canals, full of small shops, bookstores and coffee bars.",
   },
   {
-    name: "Jordaan",
-    type: "Buurt",
-    distance: "5 min lopen",
+    name: "The Jordaan",
+    destination: "Jordaan, Amsterdam",
+    type: "Neighbourhood",
+    distance: "5 min walk",
     icon: "coffee",
     description:
-      "De mooiste buurt om doelloos rond te lopen. Bruine kroegen, hofjes en op maandag de Noordermarkt.",
+      "The best part of town to wander without a plan. Brown cafés, hidden courtyards, and the Noordermarkt on Saturdays.",
   },
   {
     name: "Vondelpark",
+    destination: "Vondelpark, Amsterdam",
     type: "Park",
-    distance: "12 min lopen",
+    distance: "12 min walk",
     icon: "flower",
     description:
-      "Het groene hart van de stad. Perfect voor een ochtendwandeling of een borrel bij het Blauwe Theehuis.",
+      "The green heart of the city. Lovely for a morning walk, or a drink at the Blauwe Theehuis.",
   },
   {
     name: "Rijksmuseum",
+    destination: "Rijksmuseum, Museumstraat 1, Amsterdam",
     type: "Museum",
-    distance: "15 min lopen",
+    distance: "15 min walk",
     icon: "palette",
     description:
-      "De Nachtwacht en Vermeer. Reserveer online — dat scheelt u de rij bij de ingang.",
+      "Rembrandt's Night Watch and the Vermeers. Book online — it saves you the queue at the entrance.",
   },
   {
     name: "Leidseplein",
-    type: "Uitgaan",
-    distance: "5 min lopen",
+    destination: "Leidseplein, Amsterdam",
+    type: "Nightlife",
+    distance: "5 min walk",
     icon: "beer",
     description:
-      "Melkweg en Paradiso om de hoek voor concerten, plus terrassen tot laat in de avond.",
+      "Melkweg and Paradiso are around the corner for live music, with terraces that stay open late.",
   },
   {
-    name: "Grachtengordel",
-    type: "Werelderfgoed",
-    distance: "Voor de deur",
+    name: "The canal ring",
+    destination: "Grachtengordel, Amsterdam",
+    type: "World Heritage",
+    distance: "On your doorstep",
     icon: "landmark",
     description:
-      "U woont er middenin: zeventiende-eeuwse grachtenpanden, UNESCO-werelderfgoed.",
+      "You are living in the middle of it: seventeenth-century canal houses, listed by UNESCO.",
   },
 ];
 
 const tips: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "bike",
-    title: "Op de fiets",
-    text: "Amsterdam is het mooiste vanaf het zadel. Er zijn verhuurzaken op loopafstand — houd rechts aan en gebruik uw hand om af te slaan.",
+    title: "On a bike",
+    text: "Amsterdam is best seen from the saddle. There are rental shops within walking distance — keep right, and use your arm to signal a turn.",
   },
   {
     icon: "tram",
-    title: "Openbaar vervoer",
-    text: "Tram, bus en metro rijden frequent. Een OV-chipkaart of contactloos betalen werkt op alle lijnen.",
+    title: "Public transport",
+    text: "Trams, buses and the metro run often. Contactless payment works on every line, so you don't need a travel card.",
   },
   {
     icon: "wine",
     title: "Gezelligheid",
-    text: "Onvertaalbaar. Bestel een bier in een bruine kroeg, ga zitten en blijf wat langer dan u van plan was.",
+    text: "Untranslatable, roughly: warmth and good company. Order a beer in a brown café, sit down, and stay longer than you planned.",
   },
   {
     icon: "croissant",
-    title: "Ontbijt",
-    text: "De bakkers in de buurt zijn uitstekend. Vraag om een verse stroopwafel — warm, van de plaat.",
+    title: "Breakfast",
+    text: "The bakeries nearby are excellent. Ask for a fresh stroopwafel — warm, straight off the iron.",
   },
 ];
 
@@ -89,15 +102,15 @@ export default function Neighborhood() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Buiten de deur"
-          title="De buurt"
-          subtitle="Een paar plekken waar we zelf graag komen, allemaal op loopafstand."
+          eyebrow="Out the door"
+          title="The neighbourhood"
+          subtitle="A few places we go ourselves, all within walking distance. Tap any of them for walking directions."
         />
 
         {/* Address */}
         <div className="border-y border-ink-900/10 py-8">
           <p className="text-[0.68rem] uppercase tracking-[0.2em] text-brass-500">
-            Ons adres
+            Our address
           </p>
           <p className="mt-4 font-display text-3xl font-light leading-tight text-ink-900 sm:text-4xl">
             Lijnbaansgracht 204&#8209;1
@@ -105,14 +118,26 @@ export default function Neighborhood() {
           <p className="mt-2 text-[0.95rem] text-ink-700/70">
             1016 XA Amsterdam
           </p>
+          <a
+            href={mapSearchUrl(APARTMENT_ADDRESS)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-[2.75rem] items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.2em] text-brass-500 transition-colors hover:text-brass-600"
+          >
+            <Icon name="pin" className="h-4 w-4" />
+            Open in Google Maps
+          </a>
         </div>
 
         {/* Spots */}
         <div className="mt-16 grid sm:grid-cols-2">
           {spots.map((spot) => (
-            <article
+            <a
               key={spot.name}
-              className="border-t border-ink-900/10 py-8 sm:px-7 sm:first:border-t-0 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(odd)]:pl-0 sm:[&:nth-child(even)]:pr-0"
+              href={walkingDirectionsUrl(spot.destination)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block border-t border-ink-900/10 py-8 transition-colors hover:bg-bone-50 sm:px-7 sm:first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
             >
               <div className="flex items-center justify-between gap-4">
                 <Icon name={spot.icon} className="h-6 w-6 text-brass-500" />
@@ -120,7 +145,7 @@ export default function Neighborhood() {
                   {spot.distance}
                 </span>
               </div>
-              <h3 className="mt-5 font-display text-xl text-ink-900 sm:text-2xl">
+              <h3 className="mt-5 font-display text-xl text-ink-900 transition-colors group-hover:text-brass-600 sm:text-2xl">
                 {spot.name}
               </h3>
               <p className="mt-1 text-[0.68rem] uppercase tracking-[0.16em] text-brass-500">
@@ -129,17 +154,21 @@ export default function Neighborhood() {
               <p className="mt-3 text-sm leading-relaxed text-ink-700/70">
                 {spot.description}
               </p>
-            </article>
+              <span className="mt-4 inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.16em] text-ink-700/45 transition-colors group-hover:text-brass-500">
+                <Icon name="pin" className="h-3.5 w-3.5" />
+                Walking directions
+              </span>
+            </a>
           ))}
         </div>
 
         {/* Tips */}
         <div className="mt-16 bg-ink-950 px-7 py-10 sm:px-10 sm:py-12">
           <p className="text-[0.68rem] uppercase tracking-[0.3em] text-brass-300">
-            Van ons aan u
+            From us to you
           </p>
           <h3 className="mt-5 font-display text-3xl font-light text-bone-50 sm:text-4xl">
-            Kleine tips
+            Small tips
           </h3>
 
           <div className="mt-10 space-y-8">

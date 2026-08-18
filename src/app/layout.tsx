@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Lijnbaansgracht 204-1 · Amsterdam",
   description:
-    "Alles voor uw verblijf aan de Lijnbaansgracht: check-in, huisgids, wifi en de buurt.",
+    "Everything for your stay on the Lijnbaansgracht: arrival, house guide, wifi and the neighbourhood.",
   keywords: [
     "Amsterdam",
     "Lijnbaansgracht",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Lijnbaansgracht 204-1 · Amsterdam",
-    description: "Uw huis aan de gracht in het hart van Amsterdam",
+    description: "Your house on the canal in the heart of Amsterdam",
     type: "website",
   },
 };
@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="nl"
+      lang="en"
       className={`${cormorant.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="bg-bone-100 font-sans antialiased">{children}</body>

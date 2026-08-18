@@ -4,39 +4,39 @@ import SectionHeading from "./SectionHeading";
 const rules: { icon: IconName; title: string; description: string }[] = [
   {
     icon: "users",
-    title: "Alleen geboekte gasten",
+    title: "Booked guests only",
     description:
-      "Het appartement is er voor de gasten op de reservering. Bezoek kunnen we helaas niet toestaan.",
+      "The apartment is for the guests on the reservation. We are not able to allow additional visitors.",
   },
   {
     icon: "sparkle",
-    title: "Geen feesten",
+    title: "No parties",
     description:
-      "Dit is een woonhuis in een rustige buurt. Bijeenkomsten en feesten zijn niet toegestaan.",
+      "This is a family home in a quiet street. Gatherings and parties are not allowed.",
   },
   {
     icon: "moon",
-    title: "Nachtrust",
+    title: "Quiet hours",
     description:
-      "Tussen 21.00 en 09.00 uur graag rekening houden met de buren.",
+      "Between 9:00 PM and 9:00 AM, please keep the noise down for the neighbours.",
   },
   {
     icon: "smoke",
-    title: "Rookvrij",
+    title: "No smoking",
     description:
-      "Roken is niet toegestaan, binnen noch op het balkon of bij de voordeur.",
+      "Smoking is not permitted anywhere — inside, on the balcony, or by the front door.",
   },
   {
     icon: "paw",
-    title: "Geen huisdieren",
+    title: "No pets",
     description:
-      "Het appartement is helaas niet geschikt voor huisdieren. Hulphonden zijn welkom.",
+      "Sadly the apartment is not suitable for pets. Assistance animals are always welcome.",
   },
   {
     icon: "camera",
-    title: "Geen commerciële opnames",
+    title: "No commercial shoots",
     description:
-      "Foto's voor uzelf mogen altijd. Commerciële shoots zijn niet toegestaan.",
+      "Photos for yourself are always fine. Commercial photography and filming are not allowed.",
   },
 ];
 
@@ -48,9 +48,9 @@ export default function Rules() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Goed om te weten"
-          title="Huisregels"
-          subtitle="Een paar afspraken houden het huis en de buurt prettig — voor u en voor wie na u komt."
+          eyebrow="Good to know"
+          title="House rules"
+          subtitle="A few agreements keep the house and the street pleasant — for you, and for whoever comes after you."
           tone="dark"
         />
 
@@ -73,10 +73,10 @@ export default function Rules() {
 
         <div className="mt-14 border-t border-white/10 pt-10">
           <p className="font-display text-xl font-light leading-snug text-bone-100 sm:text-2xl">
-            Dank dat u ons huis en onze buren met zorg behandelt.
+            Thank you for treating our home and our neighbours with care.
           </p>
           <p className="mt-3 text-sm text-ink-300">
-            Vragen? Stuur ons gerust een bericht via Airbnb.
+            Any questions? Send us a message on Airbnb.
           </p>
         </div>
       </div>

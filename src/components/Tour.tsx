@@ -13,51 +13,51 @@ const rooms: {
 }[] = [
   {
     id: "living",
-    name: "Woonkamer",
+    name: "Living room",
     icon: "sofa",
-    description: "Open leefruimte met uitzicht op de gracht.",
+    description: "Open living space looking out over the canal.",
     details: [
-      "Comfortabele zithoek",
-      "Smart-tv met Netflix",
-      "Hoge ramen op de gracht",
-      "Eettafel voor twee",
+      "Comfortable seating",
+      "Smart TV with Netflix",
+      "Tall windows on the canal",
+      "Dining table for two",
     ],
   },
   {
     id: "bedroom",
-    name: "Slaapkamer",
+    name: "Bedroom",
     icon: "bed",
-    description: "Rustige slaapkamer aan de achterzijde.",
+    description: "A quiet bedroom at the back of the apartment.",
     details: [
-      "Tweepersoonsbed met linnen beddengoed",
-      "Verduisterende gordijnen",
-      "Houten kledingkast",
-      "Raam op de gracht",
+      "Double bed with linen bedding",
+      "Blackout curtains",
+      "Wooden wardrobe",
+      "Window on the canal",
     ],
   },
   {
     id: "kitchen",
-    name: "Keuken",
+    name: "Kitchen",
     icon: "pot",
-    description: "Volledig uitgeruste keuken.",
+    description: "Fully equipped for cooking a proper meal.",
     details: [
-      "Inductiekookplaat en oven",
-      "Vaatwasser en magnetron",
-      "Koelkast met vriesvak",
-      "Koffiemachine en waterkoker",
-      "Compleet servies en pannen",
+      "Induction hob and oven",
+      "Dishwasher and microwave",
+      "Fridge with freezer",
+      "Coffee machine and kettle",
+      "Full set of crockery and pans",
     ],
   },
   {
     id: "bathroom",
-    name: "Badkamer",
+    name: "Bathroom",
     icon: "shower",
-    description: "Lichte badkamer met regendouche.",
+    description: "Bright bathroom with a rain shower.",
     details: [
-      "Regendouche",
-      "Verwarmde spiegel",
-      "Verzorgingsproducten",
-      "Handdoekradiator",
+      "Rain shower",
+      "Heated mirror",
+      "Toiletries provided",
+      "Heated towel rail",
     ],
   },
 ];
@@ -77,9 +77,9 @@ export default function Tour() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Het appartement"
-          title="Rondleiding"
-          subtitle="Vier ruimtes op de eerste verdieping, met de gracht aan de voorzijde."
+          eyebrow="The apartment"
+          title="The rooms"
+          subtitle="Four rooms on the first floor, with the canal at the front."
         />
 
         {/* Room stage */}
@@ -97,14 +97,14 @@ export default function Tour() {
               <div className="flex items-center gap-1">
                 <button
                   onClick={prev}
-                  aria-label="Vorige ruimte"
+                  aria-label="Previous room"
                   className="flex h-11 w-11 items-center justify-center text-bone-200/60 transition-colors hover:text-brass-300"
                 >
                   <Icon name="chevronLeft" className="h-5 w-5" />
                 </button>
                 <button
                   onClick={next}
-                  aria-label="Volgende ruimte"
+                  aria-label="Next room"
                   className="flex h-11 w-11 items-center justify-center text-bone-200/60 transition-colors hover:text-brass-300"
                 >
                   <Icon name="chevronRight" className="h-5 w-5" />

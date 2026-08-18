@@ -43,12 +43,12 @@ function WifiPanel() {
     <>
       <div className="rounded-sm bg-ink-950 px-6 py-7 sm:px-8">
         <p className="text-[0.68rem] uppercase tracking-[0.2em] text-brass-300">
-          Netwerk
+          Network
         </p>
         <p className="mt-2 font-mono text-lg text-bone-50">AIRBNB GUESTS</p>
 
         <p className="mt-6 text-[0.68rem] uppercase tracking-[0.2em] text-brass-300">
-          Wachtwoord
+          Password
         </p>
         <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-3">
           <p className="break-all font-mono text-lg text-bone-50">{password}</p>
@@ -56,16 +56,16 @@ function WifiPanel() {
             onClick={copy}
             className="min-h-[2.5rem] shrink-0 rounded-sm border border-brass-400/40 px-4 text-[0.68rem] uppercase tracking-[0.2em] text-brass-300 transition-colors hover:border-brass-400 hover:text-brass-200"
           >
-            {copied ? "Gekopieerd" : "Kopieer"}
+            {copied ? "Copied" : "Copy"}
           </button>
         </div>
       </div>
-      <Detail label="Snelheid">
-        <p>400 Mbps down / 40 Mbps up — ruim voldoende voor videobellen en streamen.</p>
+      <Detail label="Speed">
+        <p>
+          400 Mbps down / 40 Mbps up — plenty for video calls and streaming.
+        </p>
       </Detail>
-      <Tip>
-        Werkt het niet? Herstart de router onder het keukenblad.
-      </Tip>
+      <Tip>Not connecting? Restart the router under the kitchen counter.</Tip>
     </>
   );
 }
@@ -84,40 +84,48 @@ const guideItems: {
   },
   {
     id: "climate",
-    title: "Verwarming & ramen",
+    title: "Heating & windows",
     icon: "thermometer",
     content: (
       <>
-        <Detail label="Verwarming">
+        <Detail label="Heating">
           <p>
-            De thermostaat hangt in de woonkamer. Stel de gewenste temperatuur
-            in; de verwarming regelt de rest.
+            The thermostat is in the living room. Set the temperature you want
+            and the heating takes care of the rest.
           </p>
-          <Tip>Sluit &apos;s avonds de luiken — dat scheelt merkbaar in de warmte.</Tip>
+          <Tip>
+            Closing the shutters in the evening makes a noticeable difference.
+          </Tip>
         </Detail>
-        <Detail label="Ramen">
+        <Detail label="Windows">
           <p>
-            Alle ramen openen naar binnen. Draai de kruk een kwartslag en trek
-            het raam naar u toe.
+            All windows open inwards. Turn the handle a quarter turn and pull
+            the window towards you.
           </p>
-          <Tip>De bries vanaf de gracht is op een zomeravond het mooiste van het huis.</Tip>
+          <Tip>
+            The breeze off the canal on a summer evening is the best thing about
+            this house.
+          </Tip>
         </Detail>
       </>
     ),
   },
   {
     id: "lights",
-    title: "Verlichting & tv",
+    title: "Lighting & TV",
     icon: "bulb",
     content: (
       <>
-        <Detail label="Verlichting">
-          <p>De meeste lampen zijn dimbaar met de schuifschakelaar naast de deur.</p>
-        </Detail>
-        <Detail label="Televisie">
+        <Detail label="Lighting">
           <p>
-            De tv in de woonkamer heeft Netflix, YouTube en andere apps. Meld u
-            gerust aan met uw eigen account — log bij vertrek weer uit.
+            Most lights dim using the slider switch beside the door.
+          </p>
+        </Detail>
+        <Detail label="Television">
+          <p>
+            The TV in the living room has Netflix, YouTube and other apps. Feel
+            free to sign in with your own account — just remember to sign out
+            before you leave.
           </p>
         </Detail>
       </>
@@ -125,103 +133,103 @@ const guideItems: {
   },
   {
     id: "kitchen",
-    title: "Keuken",
+    title: "Kitchen",
     icon: "pot",
     content: (
       <>
-        <Detail label="Apparatuur">
-          <p>Inductiekookplaat — gebruik alleen pannen met magnetische bodem.</p>
-          <p>Elektrische oven met boven- en onderwarmte.</p>
-          <p>Vaatwasser; tabletten staan onder de gootsteen.</p>
-          <p>Koffiemachine met instructies op het aanrecht.</p>
+        <Detail label="Appliances">
+          <p>Induction hob — only pans with a magnetic base will work.</p>
+          <p>Electric oven with top and bottom heat.</p>
+          <p>Dishwasher; tablets are under the sink.</p>
+          <p>Coffee machine, with instructions on the worktop.</p>
         </Detail>
-        <Detail label="Neem gerust">
+        <Detail label="Help yourself">
           <p>
-            We hebben zout, peper, olie, pasta, rijst, thee en koffie
-            klaargezet. Gebruik wat u nodig heeft.
+            We have left salt, pepper, oil, pasta, rice, tea and coffee for you.
+            Use whatever you need.
           </p>
         </Detail>
-        <Detail label="Bij vertrek">
-          <p>Zet de vaatwasser aan en neem de afwas mee in de machine.</p>
+        <Detail label="Before you leave">
+          <p>Load the dishwasher and start it on your way out.</p>
         </Detail>
       </>
     ),
   },
   {
     id: "bathroom",
-    title: "Badkamer",
+    title: "Bathroom",
     icon: "shower",
     content: (
       <>
-        <Detail label="Douche">
+        <Detail label="Shower">
           <p>
-            Draai de mengkraan voor temperatuur en straal. U kunt kiezen tussen
-            de handdouche en de regendouche.
+            Turn the mixer tap for temperature and flow. You can switch between
+            the handheld and the rain shower.
           </p>
         </Detail>
-        <Detail label="Ventilatie">
+        <Detail label="Ventilation">
           <p>
-            Zet de ventilator aan tijdens en na het douchen — de schakelaar zit
-            naast de deur.
+            Switch the fan on while you shower and leave it running afterwards —
+            the switch is beside the door.
           </p>
         </Detail>
-        <Detail label="Handdoeken">
-          <p>Uw handdoeken liggen warm op de radiator.</p>
+        <Detail label="Towels">
+          <p>Your towels are warming on the towel rail.</p>
         </Detail>
       </>
     ),
   },
   {
     id: "trash",
-    title: "Afval & recycling",
+    title: "Waste & recycling",
     icon: "recycle",
     content: (
       <>
-        <Detail label="Waar">
-          <p>De bakken staan in de bergkast bij de entree.</p>
+        <Detail label="Where">
+          <p>The bins are in the storage cupboard by the entrance.</p>
         </Detail>
-        <Detail label="Scheiden">
-          <p>Plastic &amp; blik — flessen, blikjes, verpakkingen</p>
-          <p>Papier &amp; karton — dozen, kranten, post</p>
-          <p>Glas — flessen en potten</p>
-          <p>GFT — etensresten en plantaardig afval</p>
-          <p>Restafval — al het overige</p>
+        <Detail label="Sorting">
+          <p>Plastic &amp; cans — bottles, tins, packaging</p>
+          <p>Paper &amp; card — boxes, newspapers, post</p>
+          <p>Glass — bottles and jars</p>
+          <p>Food waste — leftovers and plant matter</p>
+          <p>General waste — everything else</p>
         </Detail>
         <Tip>
-          Glas en papier kunnen in de ondergrondse containers op de hoek.
+          Glass and paper can go in the underground containers on the corner.
         </Tip>
       </>
     ),
   },
   {
     id: "safety",
-    title: "Veiligheid & noodgevallen",
+    title: "Safety & emergencies",
     icon: "alert",
     content: (
       <>
         <div className="rounded-sm border border-brass-400/40 bg-bone-100 px-6 py-5">
           <p className="text-[0.68rem] uppercase tracking-[0.2em] text-brass-500">
-            Noodgeval
+            Emergency
           </p>
           <p className="mt-2 font-display text-3xl font-light text-ink-900">
             112
           </p>
           <p className="mt-1 text-sm text-ink-700/70">
-            Politie, brandweer en ambulance — vanaf elke telefoon.
+            Police, fire and ambulance — from any phone.
           </p>
         </div>
-        <Detail label="Rookmelders">
+        <Detail label="Smoke alarms">
           <p>
-            In de slaapkamer en de woonkamer hangen rookmelders. Schakel deze
-            alstublieft niet uit.
+            There are smoke alarms in the bedroom and the living room. Please
+            don&apos;t disable them.
           </p>
         </Detail>
-        <Detail label="EHBO">
-          <p>Een EHBO-doos staat in het badkamerkastje.</p>
+        <Detail label="First aid">
+          <p>A first aid kit is in the bathroom cabinet.</p>
         </Detail>
-        <Detail label="Belangrijke nummers">
-          <p>Huisartsenpost — +31 20 664 6100</p>
-          <p>Politie, geen spoed — 0900 8844</p>
+        <Detail label="Useful numbers">
+          <p>Out-of-hours GP — +31 20 664 6100</p>
+          <p>Police, non-emergency — 0900 8844</p>
         </Detail>
       </>
     ),
@@ -238,9 +246,9 @@ export default function Guide() {
     >
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="In huis"
-          title="Huisgids"
-          subtitle="Alles wat u tijdens uw verblijf nodig heeft, van de thermostaat tot het afval."
+          eyebrow="Inside"
+          title="House guide"
+          subtitle="Everything you might need during your stay, from the thermostat to the bins."
         />
 
         <div className="border-t border-ink-900/10">

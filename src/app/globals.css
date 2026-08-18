@@ -42,8 +42,9 @@ body {
   color: var(--color-ink-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Cormorant defaults to old-style figures, which turn "2610" into "26IO".
-     Force lining figures so codes, times and house numbers stay readable. */
+  /* Cormorant defaults to old-style figures, which render a 1 like a small
+     cap I and a 0 like an o. Force lining figures so times and house
+     numbers stay unambiguous. */
   font-variant-numeric: lining-nums;
 }
 

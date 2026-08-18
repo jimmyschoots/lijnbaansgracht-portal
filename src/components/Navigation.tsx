@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Icon, { type IconName } from "./Icon";
 
 const navItems: { id: string; label: string; icon: IconName }[] = [
-  { id: "checkin", label: "Check-in", icon: "key" },
-  { id: "tour", label: "Ruimtes", icon: "home" },
-  { id: "rules", label: "Regels", icon: "list" },
-  { id: "guide", label: "Gids", icon: "book" },
-  { id: "checkout", label: "Vertrek", icon: "check" },
+  { id: "checkin", label: "Arrival", icon: "key" },
+  { id: "tour", label: "Rooms", icon: "home" },
+  { id: "rules", label: "Rules", icon: "list" },
+  { id: "guide", label: "Guide", icon: "book" },
+  { id: "checkout", label: "Leaving", icon: "check" },
   { id: "contact", label: "Contact", icon: "chat" },
 ];
 
@@ -38,7 +38,7 @@ export default function Navigation() {
 
   return (
     <nav
-      aria-label="Sectienavigatie"
+      aria-label="Section navigation"
       className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink-950/92 backdrop-blur-xl"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
